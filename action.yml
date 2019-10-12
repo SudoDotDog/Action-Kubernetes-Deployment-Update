@@ -1,0 +1,15 @@
+name: "Update Kubernetes Deployment"
+description: "Update Deployment Tag of Image in Kubernetes"
+inputs:
+  email:
+    description: "Image Name"
+    required: true
+  tag:
+    description: "Image Tag"
+    required: true
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.image }}
+    - ${{ inputs.tag }}

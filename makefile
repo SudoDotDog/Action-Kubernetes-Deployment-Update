@@ -8,7 +8,7 @@ image_tag := action-deployment-update
 
 sh: stop
 	@echo "[INFO] Running docker image"
-	@docker run -it --name $(image_name) $(image_tag)
+	@docker run -it --name $(image_name) $(image_tag) sh
 
 kill:
 	@echo "[INFO] Killing docker image"

@@ -1,6 +1,4 @@
-#!/bin/sh -l
-
-echo 1
+#!/bin/sh
 
 CONFIG=$1
 DEPLOYMENT=$2

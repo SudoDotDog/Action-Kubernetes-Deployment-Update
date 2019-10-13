@@ -1,15 +1,23 @@
 name: "Update Kubernetes Deployment"
 description: "Update Deployment Tag of Image in Kubernetes"
 inputs:
-  email:
-    description: "Image Name"
+  config:
+    description: "Config File Context from '~/.kube/config'"
     required: true
-  tag:
-    description: "Image Tag"
+  deployment:
+    description: "Deployment Name"
+    required: true
+  container:
+    description: "Container Name"
+    required: true
+  image:
+    description: "Image:Tag"
     required: true
 runs:
   using: "docker"
   image: "Dockerfile"
   args:
+    - ${{ inputs.config }}
+    - ${{ inputs.deployment }}
+    - ${{ inputs.container }}
     - ${{ inputs.image }}
-    - ${{ inputs.tag }}

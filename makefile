@@ -4,9 +4,11 @@
 image_name := action-deployment-update
 image_tag := action-deployment-update
 
+.IGNORE: kill stop
+
 sh: stop
-	@echo "[INFO] Hosting docker image"
-	@docker run -it --name $(image_name) $(image_tag) sh
+	@echo "[INFO] Running docker image"
+	@docker run -it --name $(image_name) $(image_tag)
 
 kill:
 	@echo "[INFO] Killing docker image"

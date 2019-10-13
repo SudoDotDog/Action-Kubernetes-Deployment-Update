@@ -1,5 +1,7 @@
 #!/bin/sh -l
 
+echo 1
+
 CONFIG=$1
 DEPLOYMENT=$2
 CONTAINER=$3

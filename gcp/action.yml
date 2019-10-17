@@ -1,0 +1,35 @@
+name: "Update Kubernetes Deployment @ GCP"
+description: "Update Deployment Tag of Image in Kubernetes @ GCP"
+inputs:
+  credential:
+    description: "Credential JSON File from GCP"
+    required: true
+  cluster:
+    description: "GCP Cluster Name"
+    required: true
+  zone:
+    description: "GCP Zone Name"
+    required: true
+  project:
+    description: "GCP Project Name"
+    required: true
+  deployment:
+    description: "Deployment Name"
+    required: true
+  container:
+    description: "Container Name"
+    required: true
+  image:
+    description: "Image:Tag"
+    required: true
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.credential }}
+    - ${{ inputs.cluster }}
+    - ${{ inputs.zone }}
+    - ${{ inputs.project }}
+    - ${{ inputs.deployment }}
+    - ${{ inputs.container }}
+    - ${{ inputs.image }}

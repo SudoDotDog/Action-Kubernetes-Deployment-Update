@@ -13,6 +13,6 @@ echo "$CREDENTIAL" > gcp-credential-key.json
 gcloud auth activate-service-account --key-file gcp-credential-key.json
 gcloud auth list
 
-gcloud container clusters get-credentials main --zone us-central1-a --project rpntechserver
+gcloud container clusters get-credentials $CLUSTER --zone us-central1-a --project rpntechserver
 
 kubectl set image deployment/$DEPLOYMENT $CONTAINER=$IMAGE
